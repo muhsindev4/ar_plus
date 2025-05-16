@@ -145,17 +145,6 @@ class Measurement(
 
 
                 sceneView.scene.addOnUpdateListener {
-                    val frame = sceneView.arFrame ?: return@addOnUpdateListener
-                    val updatedPlanes = frame.getUpdatedTrackables(Plane::class.java)
-
-                    for (plane in updatedPlanes) {
-                        if (plane.trackingState == TrackingState.TRACKING && plane.subsumedBy == null) {
-                            instructionTextView.visibility = View.GONE
-                            methodChannel.invokeMethod("onDetectedPlanes", null)
-
-                            break
-                        }
-                    }
                     updateFocusVisual()
                 }
 
