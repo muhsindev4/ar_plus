@@ -1,0 +1,1 @@
+enum Shapes{cube,sphere,cylinder,cone,plane}
